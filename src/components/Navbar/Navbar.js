@@ -1,7 +1,7 @@
 // React Router Dom
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom";
 // CSS
-import "./Navbar.css"
+import "./Navbar.css";
 
 export default function Navbar() {
   return (
@@ -12,5 +12,5 @@ export default function Navbar() {
         <NavLink to="/favorites">Favorites</NavLink>
       </nav>
     </header>
-  )
+  );
 }
