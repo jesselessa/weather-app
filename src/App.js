@@ -2,6 +2,9 @@
 import React, { createContext, useState } from "react";
 // Other library
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 // Views
 import Home from "./views/Home/Home";
 import Favorites from "./views/Favorites/Favorites";
@@ -34,6 +37,7 @@ export default function App() {
           <Route exact path="/favorites" element={<Favorites />}></Route>
         </Routes>
         <Footer />
+        <ToastContainer />
       </BrowserRouter>
     </FavoritesContext.Provider>
   );
