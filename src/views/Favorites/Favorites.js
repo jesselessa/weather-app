@@ -25,8 +25,8 @@ export default function Favorites() {
     if (context.favoriteCities.length !== 0) {
       fetchFunc();
     }
-  }, []);
-  // }, [context.favoriteCities]);
+    // }, []);
+  }, [context.favoriteCities]);
 
   // Fetchfunc() : asynchronous function in order to make the fetch in the forEach
   const fetchFunc = async () => {
@@ -39,6 +39,18 @@ export default function Favorites() {
   };
 
   // console.log("FAVORITES#weatherCities :", weatherCities);
+
+  // Remove favorite
+  const removeFavorite = (index) => {
+    const copyWeatherCities = [...weatherCities];
+    copyWeatherCities.splice(index, 1);
+    setWeatherCities(copyWeatherCities);
+
+    // Update in localStorage
+    const copyFavoriteCities = [...context.favoriteCities];
+    copyFavoriteCities.splice(index, 1);
+    localStorage.setItem("favoriteCities", JSON.stringify(copyFavoriteCities));
+  };
 
   if (isLoading) {
     return <h3>Content is loading ...</h3>;
@@ -55,13 +67,18 @@ export default function Favorites() {
               id="buttonFavorite"
               onClick={() => navigate("/")}
             >
-              Retour à l'accueil
+              Back home
             </button>
           </>
         ) : (
           weatherCities.map((weatherCity, index) => {
-            // console.log("FAVORITES#map :", weatherCity);
-            return <CityCard key={index} weatherCity={weatherCity} />;
+            return (
+              <CityCard
+                key={index}
+                weatherCity={weatherCity}
+                onClick={() => removeFavorite(index)}
+              />
+            );
           })
         )}
       </div>

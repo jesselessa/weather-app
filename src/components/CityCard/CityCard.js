@@ -1,4 +1,6 @@
-export default function CityCard({ weatherCity }) {
+// props is an objet which contains a key called weatherCity, and that we can destructure
+
+export default function CityCard({ weatherCity, onClick }) {
   return (
     <div>
       <h3>
@@ -19,6 +21,13 @@ export default function CityCard({ weatherCity }) {
           <span>Description :</span> {weatherCity.weather[0].main}
         </p>
       </div>
+      {onClick && (
+        <div>
+          <button type="button" onClick={onClick}>
+            Remove favorite
+          </button>
+        </div>
+      )}
     </div>
   );
 }
