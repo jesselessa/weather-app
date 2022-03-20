@@ -5,7 +5,6 @@ export default function CityCard({ weatherCity }) {
         {weatherCity.name}, {weatherCity.sys.country}
       </h3>
       <img
-        className=""
         src={`http://openweathermap.org/img/wn/${weatherCity.weather[0].icon}@2x.png`}
         alt="weather icon"
       />

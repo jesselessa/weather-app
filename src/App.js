@@ -1,6 +1,6 @@
 // React
 import React, { createContext, useState } from "react";
-// Other library
+// Other libraries
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -8,9 +8,11 @@ import { ToastContainer } from "react-toastify";
 // Views
 import Home from "./views/Home/Home";
 import Favorites from "./views/Favorites/Favorites";
+
 // Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+
 // CSS
 import "./App.css";
 
@@ -18,9 +20,9 @@ import "./App.css";
 export const FavoritesContext = createContext();
 
 export default function App() {
-  // State initialization either with the localStorage key "favoritesCities" or if the keys contains nothing, with an empty array
+  // State initialization either with the localStorage key "favoriteCities" or if the keys contains nothing, with an empty array
   const [favoriteCities, setFavoriteCities] = useState(
-    JSON.parse(localStorage.getItem("favoritesCities")) || []
+    JSON.parse(localStorage.getItem("favoriteCities")) || []
   ); // localStorage only accepts strings (JSON.parse : string => JSON ; JSON.stringify : JSON => string )
 
   // const value = {
@@ -29,16 +31,17 @@ export default function App() {
   // };
 
   return (
+    // Below context with state
     <FavoritesContext.Provider value={{ favoriteCities, setFavoriteCities }}>
-      <BrowserRouter>
+      <BrowserRouter className="container">
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/favorites" element={<Favorites />}></Route>
         </Routes>
         <Footer />
-        <ToastContainer />
       </BrowserRouter>
+      <ToastContainer />
     </FavoritesContext.Provider>
   );
 }
