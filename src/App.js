@@ -23,7 +23,7 @@ export default function App() {
   // State initialization either with the localStorage key "favoriteCities" or if the keys contains nothing, with an empty array
   const [favoriteCities, setFavoriteCities] = useState(
     JSON.parse(localStorage.getItem("favoriteCities")) || []
-  ); // localStorage only accepts strings (JSON.parse : string => JSON ; JSON.stringify : JSON => string )
+  );
 
   // const value = {
   //   favoriteCities: favoriteCities,

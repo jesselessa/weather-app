@@ -25,8 +25,7 @@ export default function Favorites() {
     if (context.favoriteCities.length !== 0) {
       fetchFunc();
     }
-  }, []);
-  // }, [context.favoriteCities]);
+  }, [context.favoriteCities]);
 
   // Fetchfunc() : asynchronous function which waits the responses of all fetches and puts them in an array
   const fetchFunc = async () => {

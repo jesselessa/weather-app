@@ -1,18 +1,13 @@
 // React
 import { useState, useContext } from "react";
-
 // Other library
 import { toast } from "react-toastify";
-
 // API
 import { fetchWeatherApi } from "../../utils/API";
-
 // Component
 import CityCard from "../../components/CityCard/CityCard";
-
 // CSS
 import "./Home.css";
-
 // Context
 import { FavoritesContext } from "../../App.js";
 
