@@ -22,19 +22,26 @@ export default function Favorites() {
 
   // Hook - ComponentDidMount
   useEffect(() => {
+    const fetchFunc = async () => {
+      const promises = [];
+      context.favoriteCities.forEach((city) =>
+        promises.push(fetchWeatherApi(city))
+      );
+      await Promise.all(promises).then((res) => setWeatherCities(res));
+    };    
     if (context.favoriteCities.length !== 0) {
       fetchFunc();
     }
   }, [context.favoriteCities]);
 
   // Fetchfunc() : asynchronous function which waits the responses of all fetches and puts them in an array
-  const fetchFunc = async () => {
-    const promises = [];
-    context.favoriteCities.forEach((city) =>
-      promises.push(fetchWeatherApi(city))
-    );
-    await Promise.all(promises).then((res) => setWeatherCities(res));
-  };
+  // const fetchFunc = async () => {
+  //   const promises = [];
+  //   context.favoriteCities.forEach((city) =>
+  //     promises.push(fetchWeatherApi(city))
+  //   );
+  //   await Promise.all(promises).then((res) => setWeatherCities(res));
+  // };
 
   // Remove favorite
   const removeFavorite = (index) => {
