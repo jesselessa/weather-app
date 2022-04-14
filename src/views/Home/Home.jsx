@@ -6,10 +6,8 @@ import { toast } from "react-toastify";
 import { fetchWeatherApi } from "../../utils/API";
 // Component
 import CityCard from "../../components/CityCard/CityCard";
-// CSS
-import "./Home.css";
 // Context
-import { FavoritesContext } from "../../App.js";
+import { FavoritesContext } from "../../App";
 
 export default function Home() {
   // States
@@ -17,8 +15,6 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [weatherCity, setWeatherCity] = useState(null);
   const [buttonClick, setButtonClick] = useState("buttonFetch");
-
-  console.log("HOME#favoriteCitiesContext :", context.favoriteCities);
 
   // Logic of both buttons gathered in a same function
   const handleSubmit = (e) => {
@@ -37,21 +33,25 @@ export default function Home() {
           })
           .catch((err) => console.log(err));
       } else {
-        // Second button : add to favorites and save in local storage
-        if (context.favoriteCities.length === 3) {
-          toast.error(
-            "You can't save more than three cities in your Favorites list !"
-          );
+        // Second button : add to favorites and save in local storage, but first check if the city has not been already stored
+        if (context.favoriteCities.indexOf(city) !== -1) {
+          toast.error("You already saved this city in your Favorites list !");
         } else {
-          // Create a copy of the context (favoriteCities) and add city in this new array
-          const copyFavoriteCities = [...context.favoriteCities, city];
-          // Change state of favoriteCities context
-          context.setFavoriteCities(copyFavoriteCities); // Add to local storage
-          localStorage.setItem(
-            "favoriteCities",
-            JSON.stringify(copyFavoriteCities)
-          );
-          toast.success("The city has been added to your Favorites list");
+          if (context.favoriteCities.length === 3) {
+            toast.error(
+              "You can't save more than three cities in your Favorites list !"
+            );
+          } else {
+            // Create a copy of the context (favoriteCities) and add city in this new array
+            const copyFavoriteCities = [...context.favoriteCities, city];
+            // Change state of favoriteCities context
+            context.setFavoriteCities(copyFavoriteCities); // Add to local storage
+            localStorage.setItem(
+              "favoriteCities",
+              JSON.stringify(copyFavoriteCities)
+            );
+            toast.success("The city has been added to your Favorites list");
+          }
         }
       }
     } else {
@@ -59,25 +59,37 @@ export default function Home() {
     }
   };
 
-  console.log("Home#city :", city);
-  console.log("Home#weatherCity :", weatherCity);
-
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="search"
-          id="city"
-          name="city"
-          placeholder="Enter a city name"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <div className="btnBox">
+    <div className="container mx-auto px-5 min-h-fit flex flex-col justify-around">
+      <form onSubmit={handleSubmit} className="w-screen md:w-1/2 mx-auto">
+        <div className="mt-1 relative rounded-md shadow-sm">
+          <input
+            className="form-control
+          block
+          w-full
+          px-3 py-1.5
+          text-base font-normal text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded-md shadow-sm
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            type="search"
+            id="city"
+            name="city"
+            placeholder="Enter a city name"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </div>
+        <div className=" flex flex-row justify-around pt-5">
           <button
             type="submit"
             id="buttonFetch"
             onClick={(e) => setButtonClick(e.target.id)}
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Search
           </button>
@@ -85,13 +97,15 @@ export default function Home() {
             type="submit"
             id="buttonFavorite"
             onClick={(e) => setButtonClick(e.target.id)}
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Add to favorites
           </button>
         </div>
       </form>
-
-      {weatherCity && <CityCard weatherCity={weatherCity} />}
+      <div className="flex flex-row justify-around m-4">
+        {weatherCity && <CityCard weatherCity={weatherCity} />}
+      </div>
     </div>
   );
 }

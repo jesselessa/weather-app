@@ -1,9 +1,12 @@
+/* INITIALIZATION */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100vw;
 }
 
-#root {
-  text-align: center;
+/* FOOTER */
+footer {
+  padding: 20px 0;
 }

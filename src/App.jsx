@@ -25,22 +25,19 @@ export default function App() {
     JSON.parse(localStorage.getItem("favoriteCities")) || []
   );
 
-  // const value = {
-  //   favoriteCities: favoriteCities,
-  //   setFavoriteCities: setFavoriteCities,
-  // };
-
   return (
     // Below context with state
     <FavoritesContext.Provider value={{ favoriteCities, setFavoriteCities }}>
-      <BrowserRouter className="container">
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/favorites" element={<Favorites />}></Route>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <div className=" min-h-screen flex flex-col justify-between">
+        <BrowserRouter className="container">
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/favorites" element={<Favorites />}></Route>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </div>
       <ToastContainer />
     </FavoritesContext.Provider>
   );

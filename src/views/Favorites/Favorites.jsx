@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { fetchWeatherApi } from "../../utils/API";
 // Component
 import CityCard from "../../components/CityCard/CityCard";
-// CSS
-import "./Favorites.css";
 // Context
 import { FavoritesContext } from "../../App";
 
@@ -28,20 +26,11 @@ export default function Favorites() {
         promises.push(fetchWeatherApi(city))
       );
       await Promise.all(promises).then((res) => setWeatherCities(res));
-    };    
+    };
     if (context.favoriteCities.length !== 0) {
       fetchFunc();
     }
   }, [context.favoriteCities]);
-
-  // Fetchfunc() : asynchronous function which waits the responses of all fetches and puts them in an array
-  // const fetchFunc = async () => {
-  //   const promises = [];
-  //   context.favoriteCities.forEach((city) =>
-  //     promises.push(fetchWeatherApi(city))
-  //   );
-  //   await Promise.all(promises).then((res) => setWeatherCities(res));
-  // };
 
   // Remove favorite
   const removeFavorite = (index) => {
@@ -56,14 +45,15 @@ export default function Favorites() {
   };
 
   return (
-    <>
+    <div className="py-9">
       {context.favoriteCities.length === 0 ? (
-        <div>
+        <div className="flex flex-row justify-around mt-6">
           <h3>You haven't saved any favorite city yet</h3>
           <button
             type="button"
             id="buttonFavorite"
             onClick={() => navigate("/")}
+            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Back home
           </button>
@@ -79,6 +69,6 @@ export default function Favorites() {
           );
         })
       )}
-    </>
+    </div>
   );
 }
