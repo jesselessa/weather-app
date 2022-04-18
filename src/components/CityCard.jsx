@@ -2,16 +2,16 @@
 
 export default function CityCard({ weatherCity, onClick }) {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg mb-5">
-      <h3 className="font-bold text-xl mb-2">
+    <div className="max-w-sm rounded overflow-hidden shadow-lg mb-5 mx-auto">
+      <h3 className="font-bold text-xl mb-2 text-center">
         {weatherCity.name}, {weatherCity.sys.country}
       </h3>
       <img
-        className="w-24"
+        className="w-24 mx-auto"
         src={`http://openweathermap.org/img/wn/${weatherCity.weather[0].icon}@2x.png`}
         alt="weather icon"
       />
-      <div className="px-6 py-4">
+      <div className="px-6 py-4 text-center">
         <p>
           <span className="text-gray-700 font-bold text-base">
             Temperature :
@@ -28,11 +28,11 @@ export default function CityCard({ weatherCity, onClick }) {
         </p>
       </div>
       {onClick && (
-        <div>
+        <div className="flex justify-center ">
           <button
             type="button"
             onClick={onClick}
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center px-4 py-2 mb-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Remove favorite
           </button>

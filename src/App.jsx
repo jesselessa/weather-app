@@ -6,12 +6,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 // Views
-import Home from "./views/Home/Home";
-import Favorites from "./views/Favorites/Favorites";
+import Home from "./views/Home";
+import Favorites from "./views/Favorites";
 
 // Components
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // CSS
 import "./App.css";

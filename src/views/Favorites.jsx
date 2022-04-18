@@ -3,11 +3,11 @@ import { useState, useEffect, useContext } from "react";
 // React Router Dom
 import { useNavigate } from "react-router-dom";
 // API
-import { fetchWeatherApi } from "../../utils/API";
+import { fetchWeatherApi } from "../utils/API";
 // Component
-import CityCard from "../../components/CityCard/CityCard";
+import CityCard from "../components/CityCard";
 // Context
-import { FavoritesContext } from "../../App";
+import { FavoritesContext } from "../App";
 
 export default function Favorites() {
   // Context
@@ -45,15 +45,15 @@ export default function Favorites() {
   };
 
   return (
-    <div className="py-9">
+    <div className="py-9 flex flex-col lg:flex-row lg:justify-around">
       {context.favoriteCities.length === 0 ? (
-        <div className="flex flex-row justify-around mt-6">
-          <h3>You haven't saved any favorite city yet</h3>
+        <div className="flex flex-row justify-around items-center pt-5">
+          <h3 className="mb-2 mx-2">No favorite city saved yet</h3>
           <button
             type="button"
             id="buttonFavorite"
             onClick={() => navigate("/")}
-            className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="inline-flex items-center px-4 py-2 mx-2 mb-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Back home
           </button>

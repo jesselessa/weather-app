@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 
 export default function Footer() {
   return (
-    <footer className="text-center text-white bg-gray-800">
+    <footer className="text-center text-white font-medium bg-sky-500">
       <p>&copy; Jessica ELESSA - All rights reserved</p>
       <p>{dayjs().format("YYYY-MM-DD")}</p>
     </footer>
