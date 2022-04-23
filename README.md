@@ -1,3 +1,12 @@
+# My weather
+
+A website created with React allowing you to collect, save or delete weather data from any city
+, thanks to OpenWeatherMap API
+
+## https://jesselessa.github.io/my-weather-app
+
+Clink on the link above to start playing
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
