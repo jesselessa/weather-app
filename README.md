@@ -3,7 +3,7 @@
 A website created with React allowing you to collect, save or delete weather data from any city
 , thanks to OpenWeatherMap API
 
-## https://jesselessa.github.io/my-weather-app
+## https://jesselessa.github.io/weather-app
 
 Clink on the link above to start playing
 
