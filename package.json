@@ -1,8 +1,8 @@
 {
-  "homepage": "https://jesselessa.github.io/weather-app",
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jesselessa.github.io/weather-app",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
@@ -20,13 +20,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"  },
-    
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
