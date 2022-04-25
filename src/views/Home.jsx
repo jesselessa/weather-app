@@ -15,7 +15,6 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [weatherCity, setWeatherCity] = useState(null);
   const [buttonClick, setButtonClick] = useState("buttonFetch");
-
   // Logic of both buttons gathered in a same function
   const handleSubmit = (e) => {
     e.preventDefault(); // prevent form default behaviour to refresh itself on submit

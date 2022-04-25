@@ -1,7 +1,9 @@
 // React
 import React, { createContext, useState } from "react";
 // Other libraries
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
@@ -29,18 +31,14 @@ export default function App() {
     // Below context with state
     <FavoritesContext.Provider value={{ favoriteCities, setFavoriteCities }}>
       <div className=" min-h-screen flex flex-col justify-between">
-        <BrowserRouter className="container">
+        <HashRouter className="container">
           <Navbar />
           <Routes>
-            <Route exact path="/weather-app" element={<Home />}></Route>
-            <Route
-              exact
-              path="/weather-app/favorites"
-              element={<Favorites />}
-            ></Route>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/favorites" element={<Favorites />}></Route>
           </Routes>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </div>
       <ToastContainer />
     </FavoritesContext.Provider>
