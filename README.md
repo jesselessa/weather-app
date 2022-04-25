@@ -5,7 +5,7 @@ A website created with React allowing you to collect, save or delete weather dat
 
 ## https://jesselessa.github.io/weather-app
 
-Clink on the link above to start playing
+Clink on the link above to access website
 
 # Getting Started with Create React App
 
