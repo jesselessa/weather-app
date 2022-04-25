@@ -32,8 +32,12 @@ export default function App() {
         <BrowserRouter className="container">
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<Home />}></Route>
-            <Route exact path="/favorites" element={<Favorites />}></Route>
+            <Route exact path="/weather-app" element={<Home />}></Route>
+            <Route
+              exact
+              path="/weather-app/favorites"
+              element={<Favorites />}
+            ></Route>
           </Routes>
           <Footer />
         </BrowserRouter>
