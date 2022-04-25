@@ -31,7 +31,10 @@ export default function App() {
     // Below context with state
     <FavoritesContext.Provider value={{ favoriteCities, setFavoriteCities }}>
       <div className=" min-h-screen flex flex-col justify-between">
-        <HashRouter basename="/weather-app" className="container">
+        <HashRouter
+          basename="https://jesselessa.github.io/weather-app"
+          className="container"
+        >
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
