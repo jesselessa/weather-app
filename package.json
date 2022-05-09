@@ -2,7 +2,6 @@
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jesselessa.github.io/weather-app",
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",

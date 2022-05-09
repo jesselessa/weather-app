@@ -3,7 +3,7 @@
 A website created with React allowing you to collect, save or delete weather data from any city
 , thanks to OpenWeatherMap API
 
-## https://jesselessa.github.io/weather-app
+## https://
 
 Clink on the link above to access website
 
@@ -77,3 +77,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 
